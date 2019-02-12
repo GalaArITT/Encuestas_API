@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="EncAppEntitites">
+    <EntitySetMapping Name="ENC_CATALOGOS">
+      <EntityTypeMapping TypeName="Model.ENC_CATALOGOS">
+        <MappingFragment StoreEntitySet="ENC_CATALOGOS">
+          <ScalarProperty Name="IDCATALOGO" ColumnName="IDCATALOGO" />
+          <ScalarProperty Name="IDTIPOCAT" ColumnName="IDTIPOCAT" />
+          <ScalarProperty Name="DATOSDELCATALOGO" ColumnName="DATOSDELCATALOGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENC_EMPLEADOS">
+      <EntityTypeMapping TypeName="Model.ENC_EMPLEADOS">
+        <MappingFragment StoreEntitySet="ENC_EMPLEADOS">
+          <ScalarProperty Name="IDEMPLEADO" ColumnName="IDEMPLEADO" />
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+          <ScalarProperty Name="NOMBREEMPLEADO" ColumnName="NOMBREEMPLEADO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENC_ENCUESTA">
+      <EntityTypeMapping TypeName="Model.ENC_ENCUESTA">
+        <MappingFragment StoreEntitySet="ENC_ENCUESTA">
+          <ScalarProperty Name="IDENCUESTA" ColumnName="IDENCUESTA" />
+          <ScalarProperty Name="IDPREGUNTA" ColumnName="IDPREGUNTA" />
+          <ScalarProperty Name="CLAVEENCUESTA" ColumnName="CLAVEENCUESTA" />
+          <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
+          <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENC_ENCUESTAS_APLICADAS">
+      <EntityTypeMapping TypeName="Model.ENC_ENCUESTAS_APLICADAS">
+        <MappingFragment StoreEntitySet="ENC_ENCUESTAS_APLICADAS">
+          <ScalarProperty Name="IDENCUESTASAP" ColumnName="IDENCUESTASAP" />
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+          <ScalarProperty Name="IDENCUESTA" ColumnName="IDENCUESTA" />
+          <ScalarProperty Name="CLAVEENCUESTA" ColumnName="CLAVEENCUESTA" />
+          <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENC_PREGUNTAS">
+      <EntityTypeMapping TypeName="Model.ENC_PREGUNTAS">
+        <MappingFragment StoreEntitySet="ENC_PREGUNTAS">
+          <ScalarProperty Name="IDPREGUNTA" ColumnName="IDPREGUNTA" />
+          <ScalarProperty Name="PREGUNTA" ColumnName="PREGUNTA" />
+          <ScalarProperty Name="IDRESPUESTATEXTO" ColumnName="IDRESPUESTATEXTO" />
+          <ScalarProperty Name="IDRESPUESTABOOLEAN" ColumnName="IDRESPUESTABOOLEAN" />
+          <ScalarProperty Name="IDRESPUESTANUMERO" ColumnName="IDRESPUESTANUMERO" />
+          <ScalarProperty Name="IDRESPUESTACATALOGO" ColumnName="IDRESPUESTACATALOGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENC_RESPUESTABOOLEAN">
+      <EntityTypeMapping TypeName="Model.ENC_RESPUESTABOOLEAN">
+        <MappingFragment StoreEntitySet="ENC_RESPUESTABOOLEAN">
+          <ScalarProperty Name="IDRESPUESTABOOLEAN" ColumnName="IDRESPUESTABOOLEAN" />
+          <ScalarProperty Name="RESPUESTA" ColumnName="RESPUESTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENC_RESPUESTACATALOGO">
+      <EntityTypeMapping TypeName="Model.ENC_RESPUESTACATALOGO">
+        <MappingFragment StoreEntitySet="ENC_RESPUESTACATALOGO">
+          <ScalarProperty Name="IDRESPUESTACATALOGO" ColumnName="IDRESPUESTACATALOGO" />
+          <ScalarProperty Name="IDTIPOCAT" ColumnName="IDTIPOCAT" />
+          <ScalarProperty Name="RESPUESTANEGATIVA" ColumnName="RESPUESTANEGATIVA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENC_RESPUESTANUMERO">
+      <EntityTypeMapping TypeName="Model.ENC_RESPUESTANUMERO">
+        <MappingFragment StoreEntitySet="ENC_RESPUESTANUMERO">
+          <ScalarProperty Name="IDRESPUESTANUMERO" ColumnName="IDRESPUESTANUMERO" />
+          <ScalarProperty Name="RESPUESTANUMERICO" ColumnName="RESPUESTANUMERICO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENC_RESPUESTATEXTO">
+      <EntityTypeMapping TypeName="Model.ENC_RESPUESTATEXTO">
+        <MappingFragment StoreEntitySet="ENC_RESPUESTATEXTO">
+          <ScalarProperty Name="IDRESPUESTATEXTO" ColumnName="IDRESPUESTATEXTO" />
+          <ScalarProperty Name="RESPUESTA" ColumnName="RESPUESTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENC_ROLES">
+      <EntityTypeMapping TypeName="Model.ENC_ROLES">
+        <MappingFragment StoreEntitySet="ENC_ROLES">
+          <ScalarProperty Name="IDROLES" ColumnName="IDROLES" />
+          <ScalarProperty Name="TIPOROL" ColumnName="TIPOROL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENC_TIPOCATALOGO">
+      <EntityTypeMapping TypeName="Model.ENC_TIPOCATALOGO">
+        <MappingFragment StoreEntitySet="ENC_TIPOCATALOGO">
+          <ScalarProperty Name="IDTIPOCAT" ColumnName="IDTIPOCAT" />
+          <ScalarProperty Name="TIPOCATALOGO" ColumnName="TIPOCATALOGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENC_USUARIOS">
+      <EntityTypeMapping TypeName="Model.ENC_USUARIOS">
+        <MappingFragment StoreEntitySet="ENC_USUARIOS">
+          <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+          <ScalarProperty Name="IDROLES" ColumnName="IDROLES" />
+          <ScalarProperty Name="NOMBREUSUARIO" ColumnName="NOMBREUSUARIO" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
+          <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

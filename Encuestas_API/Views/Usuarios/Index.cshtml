@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Encuestas_API.Models.ENC_USUARIOS>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBREUSUARIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PASSWORD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FECHACREACION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESTATUS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ENC_ROLES.TIPOROL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBREUSUARIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PASSWORD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FECHACREACION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESTATUS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ENC_ROLES.TIPOROL)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDUSUARIO }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDUSUARIO }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDUSUARIO })
+        </td>
+    </tr>
+}
+
+</table>

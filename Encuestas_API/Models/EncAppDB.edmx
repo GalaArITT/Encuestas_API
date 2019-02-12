@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ENC_CATALOGOS">
+          <Key>
+            <PropertyRef Name="IDCATALOGO" />
+          </Key>
+          <Property Name="IDCATALOGO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDTIPOCAT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DATOSDELCATALOGO" Type="varchar2" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ENC_EMPLEADOS">
+          <Key>
+            <PropertyRef Name="IDEMPLEADO" />
+          </Key>
+          <Property Name="IDEMPLEADO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDUSUARIO" Type="number" Precision="38" Scale="0" />
+          <Property Name="NOMBREEMPLEADO" Type="varchar2" MaxLength="300" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="200" />
+          <Property Name="TELEFONO" Type="varchar2" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="ENC_ENCUESTA">
+          <Key>
+            <PropertyRef Name="IDENCUESTA" />
+          </Key>
+          <Property Name="IDENCUESTA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDPREGUNTA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLAVEENCUESTA" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="FECHACREACION" Type="date" Nullable="false" />
+          <Property Name="ESTATUS" Type="varchar2" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ENC_ENCUESTAS_APLICADAS">
+          <Key>
+            <PropertyRef Name="IDENCUESTASAP" />
+          </Key>
+          <Property Name="IDENCUESTASAP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDENCUESTA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLAVEENCUESTA" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="FECHACREACION" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ENC_PREGUNTAS">
+          <Key>
+            <PropertyRef Name="IDPREGUNTA" />
+          </Key>
+          <Property Name="IDPREGUNTA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PREGUNTA" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="IDRESPUESTATEXTO" Type="number" Precision="38" Scale="0" />
+          <Property Name="IDRESPUESTABOOLEAN" Type="number" Precision="38" Scale="0" />
+          <Property Name="IDRESPUESTANUMERO" Type="number" Precision="38" Scale="0" />
+          <Property Name="IDRESPUESTACATALOGO" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ENC_RESPUESTABOOLEAN">
+          <Key>
+            <PropertyRef Name="IDRESPUESTABOOLEAN" />
+          </Key>
+          <Property Name="IDRESPUESTABOOLEAN" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RESPUESTA" Type="varchar2" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ENC_RESPUESTACATALOGO">
+          <Key>
+            <PropertyRef Name="IDRESPUESTACATALOGO" />
+          </Key>
+          <Property Name="IDRESPUESTACATALOGO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDTIPOCAT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RESPUESTANEGATIVA" Type="varchar2" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="ENC_RESPUESTANUMERO">
+          <Key>
+            <PropertyRef Name="IDRESPUESTANUMERO" />
+          </Key>
+          <Property Name="IDRESPUESTANUMERO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RESPUESTANUMERICO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ENC_RESPUESTATEXTO">
+          <Key>
+            <PropertyRef Name="IDRESPUESTATEXTO" />
+          </Key>
+          <Property Name="IDRESPUESTATEXTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RESPUESTA" Type="varchar2" MaxLength="4000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ENC_ROLES">
+          <Key>
+            <PropertyRef Name="IDROLES" />
+          </Key>
+          <Property Name="IDROLES" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPOROL" Type="varchar2" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ENC_TIPOCATALOGO">
+          <Key>
+            <PropertyRef Name="IDTIPOCAT" />
+          </Key>
+          <Property Name="IDTIPOCAT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPOCATALOGO" Type="varchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ENC_USUARIOS">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDROLES" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREUSUARIO" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="FECHACREACION" Type="date" Nullable="false" />
+          <Property Name="ESTATUS" Type="varchar2" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CATALOGO_TIPOCATA">
+          <End Role="ENC_TIPOCATALOGO" Type="Self.ENC_TIPOCATALOGO" Multiplicity="1" />
+          <End Role="ENC_CATALOGOS" Type="Self.ENC_CATALOGOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_TIPOCATALOGO">
+              <PropertyRef Name="IDTIPOCAT" />
+            </Principal>
+            <Dependent Role="ENC_CATALOGOS">
+              <PropertyRef Name="IDTIPOCAT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLEADO_USUARIOS">
+          <End Role="ENC_USUARIOS" Type="Self.ENC_USUARIOS" Multiplicity="0..1" />
+          <End Role="ENC_EMPLEADOS" Type="Self.ENC_EMPLEADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_USUARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+            </Principal>
+            <Dependent Role="ENC_EMPLEADOS">
+              <PropertyRef Name="IDUSUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENCUESTA_ENCUESTA">
+          <End Role="ENC_ENCUESTA" Type="Self.ENC_ENCUESTA" Multiplicity="1" />
+          <End Role="ENC_ENCUESTAS_APLICADAS" Type="Self.ENC_ENCUESTAS_APLICADAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_ENCUESTA">
+              <PropertyRef Name="IDENCUESTA" />
+            </Principal>
+            <Dependent Role="ENC_ENCUESTAS_APLICADAS">
+              <PropertyRef Name="IDENCUESTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENCUESTA_USUARIOS">
+          <End Role="ENC_USUARIOS" Type="Self.ENC_USUARIOS" Multiplicity="1" />
+          <End Role="ENC_ENCUESTAS_APLICADAS" Type="Self.ENC_ENCUESTAS_APLICADAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_USUARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+            </Principal>
+            <Dependent Role="ENC_ENCUESTAS_APLICADAS">
+              <PropertyRef Name="IDUSUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PREGUNTA_BOOLEAN">
+          <End Role="ENC_RESPUESTABOOLEAN" Type="Self.ENC_RESPUESTABOOLEAN" Multiplicity="0..1" />
+          <End Role="ENC_PREGUNTAS" Type="Self.ENC_PREGUNTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_RESPUESTABOOLEAN">
+              <PropertyRef Name="IDRESPUESTABOOLEAN" />
+            </Principal>
+            <Dependent Role="ENC_PREGUNTAS">
+              <PropertyRef Name="IDRESPUESTABOOLEAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PREGUNTA_CATALOGO">
+          <End Role="ENC_RESPUESTACATALOGO" Type="Self.ENC_RESPUESTACATALOGO" Multiplicity="0..1" />
+          <End Role="ENC_PREGUNTAS" Type="Self.ENC_PREGUNTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_RESPUESTACATALOGO">
+              <PropertyRef Name="IDRESPUESTACATALOGO" />
+            </Principal>
+            <Dependent Role="ENC_PREGUNTAS">
+              <PropertyRef Name="IDRESPUESTACATALOGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PREGUNTA_NUMERO">
+          <End Role="ENC_RESPUESTANUMERO" Type="Self.ENC_RESPUESTANUMERO" Multiplicity="0..1" />
+          <End Role="ENC_PREGUNTAS" Type="Self.ENC_PREGUNTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_RESPUESTANUMERO">
+              <PropertyRef Name="IDRESPUESTANUMERO" />
+            </Principal>
+            <Dependent Role="ENC_PREGUNTAS">
+              <PropertyRef Name="IDRESPUESTANUMERO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PREGUNTA_TEXTO">
+          <End Role="ENC_RESPUESTATEXTO" Type="Self.ENC_RESPUESTATEXTO" Multiplicity="0..1" />
+          <End Role="ENC_PREGUNTAS" Type="Self.ENC_PREGUNTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_RESPUESTATEXTO">
+              <PropertyRef Name="IDRESPUESTATEXTO" />
+            </Principal>
+            <Dependent Role="ENC_PREGUNTAS">
+              <PropertyRef Name="IDRESPUESTATEXTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESPUEST_TIPOCATA">
+          <End Role="ENC_TIPOCATALOGO" Type="Self.ENC_TIPOCATALOGO" Multiplicity="1" />
+          <End Role="ENC_RESPUESTACATALOGO" Type="Self.ENC_RESPUESTACATALOGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_TIPOCATALOGO">
+              <PropertyRef Name="IDTIPOCAT" />
+            </Principal>
+            <Dependent Role="ENC_RESPUESTACATALOGO">
+              <PropertyRef Name="IDTIPOCAT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIOS_ROLES">
+          <End Role="ENC_ROLES" Type="Self.ENC_ROLES" Multiplicity="1" />
+          <End Role="ENC_USUARIOS" Type="Self.ENC_USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_ROLES">
+              <PropertyRef Name="IDROLES" />
+            </Principal>
+            <Dependent Role="ENC_USUARIOS">
+              <PropertyRef Name="IDROLES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ENC_CATALOGOS" EntityType="Self.ENC_CATALOGOS" Schema="SEPLAN" store:Type="Tables" />
+          <EntitySet Name="ENC_EMPLEADOS" EntityType="Self.ENC_EMPLEADOS" Schema="SEPLAN" store:Type="Tables" />
+          <EntitySet Name="ENC_ENCUESTA" EntityType="Self.ENC_ENCUESTA" Schema="SEPLAN" store:Type="Tables" />
+          <EntitySet Name="ENC_ENCUESTAS_APLICADAS" EntityType="Self.ENC_ENCUESTAS_APLICADAS" Schema="SEPLAN" store:Type="Tables" />
+          <EntitySet Name="ENC_PREGUNTAS" EntityType="Self.ENC_PREGUNTAS" Schema="SEPLAN" store:Type="Tables" />
+          <EntitySet Name="ENC_RESPUESTABOOLEAN" EntityType="Self.ENC_RESPUESTABOOLEAN" Schema="SEPLAN" store:Type="Tables" />
+          <EntitySet Name="ENC_RESPUESTACATALOGO" EntityType="Self.ENC_RESPUESTACATALOGO" Schema="SEPLAN" store:Type="Tables" />
+          <EntitySet Name="ENC_RESPUESTANUMERO" EntityType="Self.ENC_RESPUESTANUMERO" Schema="SEPLAN" store:Type="Tables" />
+          <EntitySet Name="ENC_RESPUESTATEXTO" EntityType="Self.ENC_RESPUESTATEXTO" Schema="SEPLAN" store:Type="Tables" />
+          <EntitySet Name="ENC_ROLES" EntityType="Self.ENC_ROLES" Schema="SEPLAN" store:Type="Tables" />
+          <EntitySet Name="ENC_TIPOCATALOGO" EntityType="Self.ENC_TIPOCATALOGO" Schema="SEPLAN" store:Type="Tables" />
+          <EntitySet Name="ENC_USUARIOS" EntityType="Self.ENC_USUARIOS" Schema="SEPLAN" store:Type="Tables" />
+          <AssociationSet Name="FK_CATALOGO_TIPOCATA" Association="Self.FK_CATALOGO_TIPOCATA">
+            <End Role="ENC_TIPOCATALOGO" EntitySet="ENC_TIPOCATALOGO" />
+            <End Role="ENC_CATALOGOS" EntitySet="ENC_CATALOGOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLEADO_USUARIOS" Association="Self.FK_EMPLEADO_USUARIOS">
+            <End Role="ENC_USUARIOS" EntitySet="ENC_USUARIOS" />
+            <End Role="ENC_EMPLEADOS" EntitySet="ENC_EMPLEADOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENCUESTA_ENCUESTA" Association="Self.FK_ENCUESTA_ENCUESTA">
+            <End Role="ENC_ENCUESTA" EntitySet="ENC_ENCUESTA" />
+            <End Role="ENC_ENCUESTAS_APLICADAS" EntitySet="ENC_ENCUESTAS_APLICADAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENCUESTA_USUARIOS" Association="Self.FK_ENCUESTA_USUARIOS">
+            <End Role="ENC_USUARIOS" EntitySet="ENC_USUARIOS" />
+            <End Role="ENC_ENCUESTAS_APLICADAS" EntitySet="ENC_ENCUESTAS_APLICADAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PREGUNTA_BOOLEAN" Association="Self.FK_PREGUNTA_BOOLEAN">
+            <End Role="ENC_RESPUESTABOOLEAN" EntitySet="ENC_RESPUESTABOOLEAN" />
+            <End Role="ENC_PREGUNTAS" EntitySet="ENC_PREGUNTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PREGUNTA_CATALOGO" Association="Self.FK_PREGUNTA_CATALOGO">
+            <End Role="ENC_RESPUESTACATALOGO" EntitySet="ENC_RESPUESTACATALOGO" />
+            <End Role="ENC_PREGUNTAS" EntitySet="ENC_PREGUNTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PREGUNTA_NUMERO" Association="Self.FK_PREGUNTA_NUMERO">
+            <End Role="ENC_RESPUESTANUMERO" EntitySet="ENC_RESPUESTANUMERO" />
+            <End Role="ENC_PREGUNTAS" EntitySet="ENC_PREGUNTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PREGUNTA_TEXTO" Association="Self.FK_PREGUNTA_TEXTO">
+            <End Role="ENC_RESPUESTATEXTO" EntitySet="ENC_RESPUESTATEXTO" />
+            <End Role="ENC_PREGUNTAS" EntitySet="ENC_PREGUNTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESPUEST_TIPOCATA" Association="Self.FK_RESPUEST_TIPOCATA">
+            <End Role="ENC_TIPOCATALOGO" EntitySet="ENC_TIPOCATALOGO" />
+            <End Role="ENC_RESPUESTACATALOGO" EntitySet="ENC_RESPUESTACATALOGO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIOS_ROLES" Association="Self.FK_USUARIOS_ROLES">
+            <End Role="ENC_ROLES" EntitySet="ENC_ROLES" />
+            <End Role="ENC_USUARIOS" EntitySet="ENC_USUARIOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ENC_CATALOGOS">
+          <Key>
+            <PropertyRef Name="IDCATALOGO" />
+          </Key>
+          <Property Name="IDCATALOGO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDTIPOCAT" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DATOSDELCATALOGO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ENC_TIPOCATALOGO" Relationship="Self.FK_CATALOGO_TIPOCATA" FromRole="ENC_CATALOGOS" ToRole="ENC_TIPOCATALOGO" />
+        </EntityType>
+        <EntityType Name="ENC_EMPLEADOS">
+          <Key>
+            <PropertyRef Name="IDEMPLEADO" />
+          </Key>
+          <Property Name="IDEMPLEADO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDUSUARIO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="NOMBREEMPLEADO" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ENC_USUARIOS" Relationship="Self.FK_EMPLEADO_USUARIOS" FromRole="ENC_EMPLEADOS" ToRole="ENC_USUARIOS" />
+        </EntityType>
+        <EntityType Name="ENC_ENCUESTA">
+          <Key>
+            <PropertyRef Name="IDENCUESTA" />
+          </Key>
+          <Property Name="IDENCUESTA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDPREGUNTA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLAVEENCUESTA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
+          <Property Name="ESTATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ENC_ENCUESTAS_APLICADAS" Relationship="Self.FK_ENCUESTA_ENCUESTA" FromRole="ENC_ENCUESTA" ToRole="ENC_ENCUESTAS_APLICADAS" />
+        </EntityType>
+        <EntityType Name="ENC_ENCUESTAS_APLICADAS">
+          <Key>
+            <PropertyRef Name="IDENCUESTASAP" />
+          </Key>
+          <Property Name="IDENCUESTASAP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDUSUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDENCUESTA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLAVEENCUESTA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ENC_ENCUESTA" Relationship="Self.FK_ENCUESTA_ENCUESTA" FromRole="ENC_ENCUESTAS_APLICADAS" ToRole="ENC_ENCUESTA" />
+          <NavigationProperty Name="ENC_USUARIOS" Relationship="Self.FK_ENCUESTA_USUARIOS" FromRole="ENC_ENCUESTAS_APLICADAS" ToRole="ENC_USUARIOS" />
+        </EntityType>
+        <EntityType Name="ENC_PREGUNTAS">
+          <Key>
+            <PropertyRef Name="IDPREGUNTA" />
+          </Key>
+          <Property Name="IDPREGUNTA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PREGUNTA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDRESPUESTATEXTO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IDRESPUESTABOOLEAN" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IDRESPUESTANUMERO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IDRESPUESTACATALOGO" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="ENC_RESPUESTABOOLEAN" Relationship="Self.FK_PREGUNTA_BOOLEAN" FromRole="ENC_PREGUNTAS" ToRole="ENC_RESPUESTABOOLEAN" />
+          <NavigationProperty Name="ENC_RESPUESTACATALOGO" Relationship="Self.FK_PREGUNTA_CATALOGO" FromRole="ENC_PREGUNTAS" ToRole="ENC_RESPUESTACATALOGO" />
+          <NavigationProperty Name="ENC_RESPUESTANUMERO" Relationship="Self.FK_PREGUNTA_NUMERO" FromRole="ENC_PREGUNTAS" ToRole="ENC_RESPUESTANUMERO" />
+          <NavigationProperty Name="ENC_RESPUESTATEXTO" Relationship="Self.FK_PREGUNTA_TEXTO" FromRole="ENC_PREGUNTAS" ToRole="ENC_RESPUESTATEXTO" />
+        </EntityType>
+        <EntityType Name="ENC_RESPUESTABOOLEAN">
+          <Key>
+            <PropertyRef Name="IDRESPUESTABOOLEAN" />
+          </Key>
+          <Property Name="IDRESPUESTABOOLEAN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RESPUESTA" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ENC_PREGUNTAS" Relationship="Self.FK_PREGUNTA_BOOLEAN" FromRole="ENC_RESPUESTABOOLEAN" ToRole="ENC_PREGUNTAS" />
+        </EntityType>
+        <EntityType Name="ENC_RESPUESTACATALOGO">
+          <Key>
+            <PropertyRef Name="IDRESPUESTACATALOGO" />
+          </Key>
+          <Property Name="IDRESPUESTACATALOGO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDTIPOCAT" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RESPUESTANEGATIVA" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ENC_PREGUNTAS" Relationship="Self.FK_PREGUNTA_CATALOGO" FromRole="ENC_RESPUESTACATALOGO" ToRole="ENC_PREGUNTAS" />
+          <NavigationProperty Name="ENC_TIPOCATALOGO" Relationship="Self.FK_RESPUEST_TIPOCATA" FromRole="ENC_RESPUESTACATALOGO" ToRole="ENC_TIPOCATALOGO" />
+        </EntityType>
+        <EntityType Name="ENC_RESPUESTANUMERO">
+          <Key>
+            <PropertyRef Name="IDRESPUESTANUMERO" />
+          </Key>
+          <Property Name="IDRESPUESTANUMERO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RESPUESTANUMERICO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="ENC_PREGUNTAS" Relationship="Self.FK_PREGUNTA_NUMERO" FromRole="ENC_RESPUESTANUMERO" ToRole="ENC_PREGUNTAS" />
+        </EntityType>
+        <EntityType Name="ENC_RESPUESTATEXTO">
+          <Key>
+            <PropertyRef Name="IDRESPUESTATEXTO" />
+          </Key>
+          <Property Name="IDRESPUESTATEXTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RESPUESTA" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ENC_PREGUNTAS" Relationship="Self.FK_PREGUNTA_TEXTO" FromRole="ENC_RESPUESTATEXTO" ToRole="ENC_PREGUNTAS" />
+        </EntityType>
+        <EntityType Name="ENC_ROLES">
+          <Key>
+            <PropertyRef Name="IDROLES" />
+          </Key>
+          <Property Name="IDROLES" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPOROL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ENC_USUARIOS" Relationship="Self.FK_USUARIOS_ROLES" FromRole="ENC_ROLES" ToRole="ENC_USUARIOS" />
+        </EntityType>
+        <EntityType Name="ENC_TIPOCATALOGO">
+          <Key>
+            <PropertyRef Name="IDTIPOCAT" />
+          </Key>
+          <Property Name="IDTIPOCAT" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPOCATALOGO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ENC_CATALOGOS" Relationship="Self.FK_CATALOGO_TIPOCATA" FromRole="ENC_TIPOCATALOGO" ToRole="ENC_CATALOGOS" />
+          <NavigationProperty Name="ENC_RESPUESTACATALOGO" Relationship="Self.FK_RESPUEST_TIPOCATA" FromRole="ENC_TIPOCATALOGO" ToRole="ENC_RESPUESTACATALOGO" />
+        </EntityType>
+        <EntityType Name="ENC_USUARIOS">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDROLES" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREUSUARIO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHACREACION" Type="DateTime" Nullable="false" />
+          <Property Name="ESTATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ENC_EMPLEADOS" Relationship="Self.FK_EMPLEADO_USUARIOS" FromRole="ENC_USUARIOS" ToRole="ENC_EMPLEADOS" />
+          <NavigationProperty Name="ENC_ENCUESTAS_APLICADAS" Relationship="Self.FK_ENCUESTA_USUARIOS" FromRole="ENC_USUARIOS" ToRole="ENC_ENCUESTAS_APLICADAS" />
+          <NavigationProperty Name="ENC_ROLES" Relationship="Self.FK_USUARIOS_ROLES" FromRole="ENC_USUARIOS" ToRole="ENC_ROLES" />
+        </EntityType>
+        <Association Name="FK_CATALOGO_TIPOCATA">
+          <End Role="ENC_TIPOCATALOGO" Type="Self.ENC_TIPOCATALOGO" Multiplicity="1" />
+          <End Role="ENC_CATALOGOS" Type="Self.ENC_CATALOGOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_TIPOCATALOGO">
+              <PropertyRef Name="IDTIPOCAT" />
+            </Principal>
+            <Dependent Role="ENC_CATALOGOS">
+              <PropertyRef Name="IDTIPOCAT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLEADO_USUARIOS">
+          <End Role="ENC_USUARIOS" Type="Self.ENC_USUARIOS" Multiplicity="0..1" />
+          <End Role="ENC_EMPLEADOS" Type="Self.ENC_EMPLEADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_USUARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+            </Principal>
+            <Dependent Role="ENC_EMPLEADOS">
+              <PropertyRef Name="IDUSUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENCUESTA_ENCUESTA">
+          <End Role="ENC_ENCUESTA" Type="Self.ENC_ENCUESTA" Multiplicity="1" />
+          <End Role="ENC_ENCUESTAS_APLICADAS" Type="Self.ENC_ENCUESTAS_APLICADAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_ENCUESTA">
+              <PropertyRef Name="IDENCUESTA" />
+            </Principal>
+            <Dependent Role="ENC_ENCUESTAS_APLICADAS">
+              <PropertyRef Name="IDENCUESTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ENCUESTA_USUARIOS">
+          <End Role="ENC_USUARIOS" Type="Self.ENC_USUARIOS" Multiplicity="1" />
+          <End Role="ENC_ENCUESTAS_APLICADAS" Type="Self.ENC_ENCUESTAS_APLICADAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_USUARIOS">
+              <PropertyRef Name="IDUSUARIO" />
+            </Principal>
+            <Dependent Role="ENC_ENCUESTAS_APLICADAS">
+              <PropertyRef Name="IDUSUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PREGUNTA_BOOLEAN">
+          <End Role="ENC_RESPUESTABOOLEAN" Type="Self.ENC_RESPUESTABOOLEAN" Multiplicity="0..1" />
+          <End Role="ENC_PREGUNTAS" Type="Self.ENC_PREGUNTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_RESPUESTABOOLEAN">
+              <PropertyRef Name="IDRESPUESTABOOLEAN" />
+            </Principal>
+            <Dependent Role="ENC_PREGUNTAS">
+              <PropertyRef Name="IDRESPUESTABOOLEAN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PREGUNTA_CATALOGO">
+          <End Role="ENC_RESPUESTACATALOGO" Type="Self.ENC_RESPUESTACATALOGO" Multiplicity="0..1" />
+          <End Role="ENC_PREGUNTAS" Type="Self.ENC_PREGUNTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_RESPUESTACATALOGO">
+              <PropertyRef Name="IDRESPUESTACATALOGO" />
+            </Principal>
+            <Dependent Role="ENC_PREGUNTAS">
+              <PropertyRef Name="IDRESPUESTACATALOGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PREGUNTA_NUMERO">
+          <End Role="ENC_RESPUESTANUMERO" Type="Self.ENC_RESPUESTANUMERO" Multiplicity="0..1" />
+          <End Role="ENC_PREGUNTAS" Type="Self.ENC_PREGUNTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_RESPUESTANUMERO">
+              <PropertyRef Name="IDRESPUESTANUMERO" />
+            </Principal>
+            <Dependent Role="ENC_PREGUNTAS">
+              <PropertyRef Name="IDRESPUESTANUMERO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PREGUNTA_TEXTO">
+          <End Role="ENC_RESPUESTATEXTO" Type="Self.ENC_RESPUESTATEXTO" Multiplicity="0..1" />
+          <End Role="ENC_PREGUNTAS" Type="Self.ENC_PREGUNTAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_RESPUESTATEXTO">
+              <PropertyRef Name="IDRESPUESTATEXTO" />
+            </Principal>
+            <Dependent Role="ENC_PREGUNTAS">
+              <PropertyRef Name="IDRESPUESTATEXTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RESPUEST_TIPOCATA">
+          <End Role="ENC_TIPOCATALOGO" Type="Self.ENC_TIPOCATALOGO" Multiplicity="1" />
+          <End Role="ENC_RESPUESTACATALOGO" Type="Self.ENC_RESPUESTACATALOGO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_TIPOCATALOGO">
+              <PropertyRef Name="IDTIPOCAT" />
+            </Principal>
+            <Dependent Role="ENC_RESPUESTACATALOGO">
+              <PropertyRef Name="IDTIPOCAT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIOS_ROLES">
+          <End Role="ENC_ROLES" Type="Self.ENC_ROLES" Multiplicity="1" />
+          <End Role="ENC_USUARIOS" Type="Self.ENC_USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENC_ROLES">
+              <PropertyRef Name="IDROLES" />
+            </Principal>
+            <Dependent Role="ENC_USUARIOS">
+              <PropertyRef Name="IDROLES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EncAppEntitites" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ENC_CATALOGOS" EntityType="Self.ENC_CATALOGOS" />
+          <EntitySet Name="ENC_EMPLEADOS" EntityType="Self.ENC_EMPLEADOS" />
+          <EntitySet Name="ENC_ENCUESTA" EntityType="Self.ENC_ENCUESTA" />
+          <EntitySet Name="ENC_ENCUESTAS_APLICADAS" EntityType="Self.ENC_ENCUESTAS_APLICADAS" />
+          <EntitySet Name="ENC_PREGUNTAS" EntityType="Self.ENC_PREGUNTAS" />
+          <EntitySet Name="ENC_RESPUESTABOOLEAN" EntityType="Self.ENC_RESPUESTABOOLEAN" />
+          <EntitySet Name="ENC_RESPUESTACATALOGO" EntityType="Self.ENC_RESPUESTACATALOGO" />
+          <EntitySet Name="ENC_RESPUESTANUMERO" EntityType="Self.ENC_RESPUESTANUMERO" />
+          <EntitySet Name="ENC_RESPUESTATEXTO" EntityType="Self.ENC_RESPUESTATEXTO" />
+          <EntitySet Name="ENC_ROLES" EntityType="Self.ENC_ROLES" />
+          <EntitySet Name="ENC_TIPOCATALOGO" EntityType="Self.ENC_TIPOCATALOGO" />
+          <EntitySet Name="ENC_USUARIOS" EntityType="Self.ENC_USUARIOS" />
+          <AssociationSet Name="FK_CATALOGO_TIPOCATA" Association="Self.FK_CATALOGO_TIPOCATA">
+            <End Role="ENC_TIPOCATALOGO" EntitySet="ENC_TIPOCATALOGO" />
+            <End Role="ENC_CATALOGOS" EntitySet="ENC_CATALOGOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLEADO_USUARIOS" Association="Self.FK_EMPLEADO_USUARIOS">
+            <End Role="ENC_USUARIOS" EntitySet="ENC_USUARIOS" />
+            <End Role="ENC_EMPLEADOS" EntitySet="ENC_EMPLEADOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENCUESTA_ENCUESTA" Association="Self.FK_ENCUESTA_ENCUESTA">
+            <End Role="ENC_ENCUESTA" EntitySet="ENC_ENCUESTA" />
+            <End Role="ENC_ENCUESTAS_APLICADAS" EntitySet="ENC_ENCUESTAS_APLICADAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ENCUESTA_USUARIOS" Association="Self.FK_ENCUESTA_USUARIOS">
+            <End Role="ENC_USUARIOS" EntitySet="ENC_USUARIOS" />
+            <End Role="ENC_ENCUESTAS_APLICADAS" EntitySet="ENC_ENCUESTAS_APLICADAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PREGUNTA_BOOLEAN" Association="Self.FK_PREGUNTA_BOOLEAN">
+            <End Role="ENC_RESPUESTABOOLEAN" EntitySet="ENC_RESPUESTABOOLEAN" />
+            <End Role="ENC_PREGUNTAS" EntitySet="ENC_PREGUNTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PREGUNTA_CATALOGO" Association="Self.FK_PREGUNTA_CATALOGO">
+            <End Role="ENC_RESPUESTACATALOGO" EntitySet="ENC_RESPUESTACATALOGO" />
+            <End Role="ENC_PREGUNTAS" EntitySet="ENC_PREGUNTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PREGUNTA_NUMERO" Association="Self.FK_PREGUNTA_NUMERO">
+            <End Role="ENC_RESPUESTANUMERO" EntitySet="ENC_RESPUESTANUMERO" />
+            <End Role="ENC_PREGUNTAS" EntitySet="ENC_PREGUNTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PREGUNTA_TEXTO" Association="Self.FK_PREGUNTA_TEXTO">
+            <End Role="ENC_RESPUESTATEXTO" EntitySet="ENC_RESPUESTATEXTO" />
+            <End Role="ENC_PREGUNTAS" EntitySet="ENC_PREGUNTAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESPUEST_TIPOCATA" Association="Self.FK_RESPUEST_TIPOCATA">
+            <End Role="ENC_TIPOCATALOGO" EntitySet="ENC_TIPOCATALOGO" />
+            <End Role="ENC_RESPUESTACATALOGO" EntitySet="ENC_RESPUESTACATALOGO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIOS_ROLES" Association="Self.FK_USUARIOS_ROLES">
+            <End Role="ENC_ROLES" EntitySet="ENC_ROLES" />
+            <End Role="ENC_USUARIOS" EntitySet="ENC_USUARIOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="EncAppEntitites">
+          <EntitySetMapping Name="ENC_CATALOGOS">
+            <EntityTypeMapping TypeName="Model.ENC_CATALOGOS">
+              <MappingFragment StoreEntitySet="ENC_CATALOGOS">
+                <ScalarProperty Name="IDCATALOGO" ColumnName="IDCATALOGO" />
+                <ScalarProperty Name="IDTIPOCAT" ColumnName="IDTIPOCAT" />
+                <ScalarProperty Name="DATOSDELCATALOGO" ColumnName="DATOSDELCATALOGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENC_EMPLEADOS">
+            <EntityTypeMapping TypeName="Model.ENC_EMPLEADOS">
+              <MappingFragment StoreEntitySet="ENC_EMPLEADOS">
+                <ScalarProperty Name="IDEMPLEADO" ColumnName="IDEMPLEADO" />
+                <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+                <ScalarProperty Name="NOMBREEMPLEADO" ColumnName="NOMBREEMPLEADO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENC_ENCUESTA">
+            <EntityTypeMapping TypeName="Model.ENC_ENCUESTA">
+              <MappingFragment StoreEntitySet="ENC_ENCUESTA">
+                <ScalarProperty Name="IDENCUESTA" ColumnName="IDENCUESTA" />
+                <ScalarProperty Name="IDPREGUNTA" ColumnName="IDPREGUNTA" />
+                <ScalarProperty Name="CLAVEENCUESTA" ColumnName="CLAVEENCUESTA" />
+                <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENC_ENCUESTAS_APLICADAS">
+            <EntityTypeMapping TypeName="Model.ENC_ENCUESTAS_APLICADAS">
+              <MappingFragment StoreEntitySet="ENC_ENCUESTAS_APLICADAS">
+                <ScalarProperty Name="IDENCUESTASAP" ColumnName="IDENCUESTASAP" />
+                <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+                <ScalarProperty Name="IDENCUESTA" ColumnName="IDENCUESTA" />
+                <ScalarProperty Name="CLAVEENCUESTA" ColumnName="CLAVEENCUESTA" />
+                <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENC_PREGUNTAS">
+            <EntityTypeMapping TypeName="Model.ENC_PREGUNTAS">
+              <MappingFragment StoreEntitySet="ENC_PREGUNTAS">
+                <ScalarProperty Name="IDPREGUNTA" ColumnName="IDPREGUNTA" />
+                <ScalarProperty Name="PREGUNTA" ColumnName="PREGUNTA" />
+                <ScalarProperty Name="IDRESPUESTATEXTO" ColumnName="IDRESPUESTATEXTO" />
+                <ScalarProperty Name="IDRESPUESTABOOLEAN" ColumnName="IDRESPUESTABOOLEAN" />
+                <ScalarProperty Name="IDRESPUESTANUMERO" ColumnName="IDRESPUESTANUMERO" />
+                <ScalarProperty Name="IDRESPUESTACATALOGO" ColumnName="IDRESPUESTACATALOGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENC_RESPUESTABOOLEAN">
+            <EntityTypeMapping TypeName="Model.ENC_RESPUESTABOOLEAN">
+              <MappingFragment StoreEntitySet="ENC_RESPUESTABOOLEAN">
+                <ScalarProperty Name="IDRESPUESTABOOLEAN" ColumnName="IDRESPUESTABOOLEAN" />
+                <ScalarProperty Name="RESPUESTA" ColumnName="RESPUESTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENC_RESPUESTACATALOGO">
+            <EntityTypeMapping TypeName="Model.ENC_RESPUESTACATALOGO">
+              <MappingFragment StoreEntitySet="ENC_RESPUESTACATALOGO">
+                <ScalarProperty Name="IDRESPUESTACATALOGO" ColumnName="IDRESPUESTACATALOGO" />
+                <ScalarProperty Name="IDTIPOCAT" ColumnName="IDTIPOCAT" />
+                <ScalarProperty Name="RESPUESTANEGATIVA" ColumnName="RESPUESTANEGATIVA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENC_RESPUESTANUMERO">
+            <EntityTypeMapping TypeName="Model.ENC_RESPUESTANUMERO">
+              <MappingFragment StoreEntitySet="ENC_RESPUESTANUMERO">
+                <ScalarProperty Name="IDRESPUESTANUMERO" ColumnName="IDRESPUESTANUMERO" />
+                <ScalarProperty Name="RESPUESTANUMERICO" ColumnName="RESPUESTANUMERICO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENC_RESPUESTATEXTO">
+            <EntityTypeMapping TypeName="Model.ENC_RESPUESTATEXTO">
+              <MappingFragment StoreEntitySet="ENC_RESPUESTATEXTO">
+                <ScalarProperty Name="IDRESPUESTATEXTO" ColumnName="IDRESPUESTATEXTO" />
+                <ScalarProperty Name="RESPUESTA" ColumnName="RESPUESTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENC_ROLES">
+            <EntityTypeMapping TypeName="Model.ENC_ROLES">
+              <MappingFragment StoreEntitySet="ENC_ROLES">
+                <ScalarProperty Name="IDROLES" ColumnName="IDROLES" />
+                <ScalarProperty Name="TIPOROL" ColumnName="TIPOROL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENC_TIPOCATALOGO">
+            <EntityTypeMapping TypeName="Model.ENC_TIPOCATALOGO">
+              <MappingFragment StoreEntitySet="ENC_TIPOCATALOGO">
+                <ScalarProperty Name="IDTIPOCAT" ColumnName="IDTIPOCAT" />
+                <ScalarProperty Name="TIPOCATALOGO" ColumnName="TIPOCATALOGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENC_USUARIOS">
+            <EntityTypeMapping TypeName="Model.ENC_USUARIOS">
+              <MappingFragment StoreEntitySet="ENC_USUARIOS">
+                <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+                <ScalarProperty Name="IDROLES" ColumnName="IDROLES" />
+                <ScalarProperty Name="NOMBREUSUARIO" ColumnName="NOMBREUSUARIO" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="FECHACREACION" ColumnName="FECHACREACION" />
+                <ScalarProperty Name="ESTATUS" ColumnName="ESTATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

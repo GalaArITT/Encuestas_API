@@ -94,3 +94,9 @@ C:\Users\ogalaviz\source\repos\Encuestas_API\Encuestas_API\obj\Debug\Encuestas_A
 C:\Users\ogalaviz\source\repos\Encuestas_API\Encuestas_API\obj\Debug\Encuestas_API.csproj.CopyComplete
 C:\Users\ogalaviz\source\repos\Encuestas_API\Encuestas_API\obj\Debug\Encuestas_API.dll
 C:\Users\ogalaviz\source\repos\Encuestas_API\Encuestas_API\obj\Debug\Encuestas_API.pdb
+C:\Users\ogalaviz\source\repos\Encuestas_API\Encuestas_API\bin\EntityFramework.dll
+C:\Users\ogalaviz\source\repos\Encuestas_API\Encuestas_API\bin\EntityFramework.xml
+C:\Users\ogalaviz\source\repos\Encuestas_API\Encuestas_API\bin\EntityFramework.SqlServer.dll
+C:\Users\ogalaviz\source\repos\Encuestas_API\Encuestas_API\bin\Oracle.ManagedDataAccess.dll
+C:\Users\ogalaviz\source\repos\Encuestas_API\Encuestas_API\bin\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\ogalaviz\source\repos\Encuestas_API\Encuestas_API\bin\EntityFramework.SqlServer.xml

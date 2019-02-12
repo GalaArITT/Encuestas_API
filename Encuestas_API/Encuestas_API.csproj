@@ -45,10 +45,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.18.3.0\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -162,9 +175,61 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EncAppDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EncAppDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EncAppDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EncAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EncAppDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EncAppDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ENC_CATALOGOS.cs">
+      <DependentUpon>EncAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ENC_EMPLEADOS.cs">
+      <DependentUpon>EncAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ENC_ENCUESTA.cs">
+      <DependentUpon>EncAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ENC_ENCUESTAS_APLICADAS.cs">
+      <DependentUpon>EncAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ENC_PREGUNTAS.cs">
+      <DependentUpon>EncAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ENC_RESPUESTABOOLEAN.cs">
+      <DependentUpon>EncAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ENC_RESPUESTACATALOGO.cs">
+      <DependentUpon>EncAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ENC_RESPUESTANUMERO.cs">
+      <DependentUpon>EncAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ENC_RESPUESTATEXTO.cs">
+      <DependentUpon>EncAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ENC_ROLES.cs">
+      <DependentUpon>EncAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ENC_TIPOCATALOGO.cs">
+      <DependentUpon>EncAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ENC_USUARIOS.cs">
+      <DependentUpon>EncAppDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -177,6 +242,16 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Models\EncAppDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EncAppDB.edmx</DependentUpon>
+      <LastGenOutput>EncAppDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EncAppDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EncAppDB.edmx</DependentUpon>
+      <LastGenOutput>EncAppDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -198,6 +273,13 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Models\EncAppDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EncAppDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EncAppDB.edmx.diagram">
+      <DependentUpon>EncAppDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -218,10 +300,14 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Usuarios\Create.cshtml" />
+    <Content Include="Views\Usuarios\Delete.cshtml" />
+    <Content Include="Views\Usuarios\Details.cshtml" />
+    <Content Include="Views\Usuarios\Edit.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -251,6 +337,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
