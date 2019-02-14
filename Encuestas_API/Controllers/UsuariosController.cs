@@ -22,7 +22,7 @@ namespace Encuestas_API.Controllers
         }
 
         // GET: Usuarios/Details/5
-        public ActionResult Details(decimal id)
+        public ActionResult Details(decimal? id)
         {
             if (id == null)
             {
@@ -53,6 +53,8 @@ namespace Encuestas_API.Controllers
             if (ModelState.IsValid)
             {
                 db.ENC_USUARIOS.Add(eNC_USUARIOS);
+                eNC_USUARIOS.FECHACREACION = DateTime.Now;
+                eNC_USUARIOS.ESTATUS = "A";
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -62,7 +64,7 @@ namespace Encuestas_API.Controllers
         }
 
         // GET: Usuarios/Edit/5
-        public ActionResult Edit(decimal id)
+        public ActionResult Edit(decimal? id)
         {
             if (id == null)
             {
@@ -95,7 +97,7 @@ namespace Encuestas_API.Controllers
         }
 
         // GET: Usuarios/Delete/5
-        public ActionResult Delete(decimal id)
+        public ActionResult Delete(decimal? id)
         {
             if (id == null)
             {
