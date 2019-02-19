@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="Model.ENC_CATALOGOS" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ENC_EMPLEADOS" Width="1.5" PointX="12.25" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ENC_ENCUESTA" Width="1.5" PointX="10" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.ENC_ENCUESTAS_APLICADAS" Width="1.5" PointX="12.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ENC_ENCUESTAS_APLICADAS" Width="2.75" PointX="11.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ENC_PREGUNTAS" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ENC_RESPUESTABOOLEAN" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ENC_RESPUESTACATALOGO" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
