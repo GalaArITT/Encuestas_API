@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encuestas_API", "Encuestas_API\Encuestas_API.csproj", "{91B28CD1-7E8F-47B7-842D-46FC2BE58B05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncuestasMVC", "..\EncuestasMVC\EncuestasMVC\EncuestasMVC.csproj", "{A2F9B227-DDFC-46CC-BC71-3313DBB90541}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncuestasMVC", "..\Encuestas_MVC\EncuestasMVC\EncuestasMVC.csproj", "{A2F9B227-DDFC-46CC-BC71-3313DBB90541}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
